@@ -1,0 +1,215 @@
+-<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Exchange - formazione in pillole</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover, nav a.active {
+            background-color: #4CAF50;
+        }
+        .tab-content {
+            display: none;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-content h2 {
+            color: #4CAF50;
+        }
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .video-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .video-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .video-card iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+        .video-info {
+            padding: 10px;
+        }
+        .video-info h3 {
+            font-size: 1em;
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .video-info p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #4CAF50;
+            color: white;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .video-card {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .video-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pillole DDI</h1>
+    </header>
+
+    <!-- Menu a schede -->
+    <nav>
+        <a href="#" class="tab-link active" data-tab="pillole">Pillole</a>
+        <a href="#" class="tab-link" data-tab="calendario">Calendario</a>
+        <a href="#" class="tab-link" data-tab="approfondimenti">Approfondimenti</a>
+        <a href="#" class="tab-link" data-tab="proponi">Proponi un Argomento</a>
+    </nav>
+
+    <!-- Sezione Pillole (Video) -->
+    <div id="pillole" class="tab-content active">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Cerca tra i video..." oninput="filterVideos()">
+            </div>
+            <div class="category">
+                <h2>SCDP</h2>
+                <div class="video-list" id="tecnologia">
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
+                        <div class="video-info">
+                            <h3>Che cos' &egrave; il cross-dock?</h3>
+                            <p>Andrea Mattalia</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe>
+                        <div class="video-info">
+                            <h3>Tutto sul codice 48</h3>
+                            <p>Francesca Prontera</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione Calendario -->
+    <div id="calendario" class="tab-content">
+        <h2>Calendario</h2>
+        <p>Consulta il calendario per seguire gli eventi e i webinar programmati.</p>
+		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSZglrM-A51Ihnl37xRolQJmrNf9AJTBCc8yjPl7npwptuH5xyTsjGIpBCquFqDd4kzcK5PSRwlk4NZ/pubhtml?widget=true&amp;headers=false" width="1068" height="1068" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+    </div>
+    <!-- Sezione Approfondimenti -->
+    <div id="approfondimenti" class="tab-content">
+        <h2>Calendario degli approfondimenti</h2>
+        <p>Consulta il calendario degli approfondimenti per seguire gli eventi e i webinar programmati.</p>
+		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2XYKQUNehOjQUbzvLVsqfemWFxgDTFGmyYfAnsvjE5Cv2H9Wbu8OHVdSY4zggNVeyYDMPNxxyn9re/pubhtml?gid=2066478795&amp;single=true&amp;widget=true&amp;headers=false" width="1068" height="1068" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+    </div>
+    <!-- Sezione Proponi un Argomento -->
+    <div id="proponi" class="tab-content">
+        <h2>Proponi un Argomento</h2>
+        <p>Hai un'idea per un nuovo argomento o contenuto? Faccelo sapere!</p>
+		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeKToLUWd147XFlV8KX2Y7JgiIRZ_XfohmlanxV-_5SFJP71A/viewform?embedded=true" width="640" height="1068" frameborder="0" marginheight="0" marginwidth="0">Caricamento…</iframe>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Elenco Video. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Funzione per attivare le schede
+        const tabs = document.querySelectorAll(".tab-link");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                // Rimuovi la classe attiva da tutte le schede e i contenuti
+                tabs.forEach(t => t.classList.remove("active"));
+                contents.forEach(content => content.classList.remove("active"));
+
+                // Aggiungi la classe attiva alla scheda e al contenuto cliccati
+                tab.classList.add("active");
+                document.getElementById(tab.dataset.tab).classList.add("active");
+            });
+        });
+
+        // Funzione di ricerca nei video
+        function filterVideos() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const categories = document.querySelectorAll(".video-list");
+
+            categories.forEach(category => {
+                const videos = category.querySelectorAll(".video-card");
+                videos.forEach(video => {
+                    const title = video.querySelector("h3").textContent.toLowerCase();
+                    const description = video.querySelector("p").textContent.toLowerCase();
+                    if (title.includes(query) || description.includes(query)) {
+                        video.style.display = "";
+                    } else {
+                        video.style.display = "none";
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
